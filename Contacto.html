@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Contacto - Consultorio Dental Sonrisa Feliz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f9fb;
+        }
+
+        header {
+            background-color: #00a8a8;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #007c7c;
+            padding: 10px;
+            text-align: center;
+            }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: aquamarine;
+        }
+        
+
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #007c7c;
+        }
+        .servicio {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #00a8a8;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        form{
+margin-top:10px;
+}
+
+input, textarea{
+width:50%;
+padding:10px;
+margin-top:5px;
+border-radius:5px;
+border:1px solid #ccc;
+
+}
+
+button{
+background-color:#0c5a73;
+color:white;
+border:none;
+padding:10px 10px;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+
+button:hover{
+background-color:#00a8a8;
+}
+.contenido{
+max-width: 700px;
+margin: 50px auto;
+background: white;
+padding: 40px;
+border-radius: 10px;
+box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+form{
+margin-top:20px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:15px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+background-color:#007c7c;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background-color:#00a8a8;
+}
+</style>
+<header>
+<h1>Consultorio Dental Sonrisa Feliz</h1>
+<p>Cuidamos tu sonrisa</p>
+</header>
+
+<nav class="menu">
+<a href="index.html">Inicio</a>
+<a href="servicios.html">Servicios</a>
+<a href="Nosotros.html">Nosotros</a>
+<a href="Contacto.html">Contacto</a>
+</nav>
+
+<section class="contenido">
+
+<h2>CONTÁCTANOS</h2>
+
+<p>Puedes comunicarte con nosotros para agendar una cita o resolver cualquier duda sobre nuestros servicios.</p>
+
+<h3>Información de contacto</h3>
+
+<p><b>Dirección:</b> Calle #123, Mérida, Yucatán</p>
+<p><b>Teléfono:</b> 997 141 9788</p>
+<p><b>Email:</b> sonrisafeliz@clinica.com</p>
+<p><b>Horario:</b> Lunes a Viernes de 9:00 a.m. a 6:00 p.m.</p>
+
+<h3>Agenda tu cita</h3>
+
+<form id="formContacto">
+
+    <label>Nombre:</label>
+    <input type="text" id="nombre" required>
+
+    <label>Correo electrónico:</label>
+    <input type="email" id="correo" required>
+
+    <label>Teléfono:</label>
+    <input type="text" id="telefono">
+
+    <label>Mensaje:</label>
+    <textarea id="mensaje"></textarea>
+
+    <button type="submit">Agendar cita</button>
+</form>
+
+<script>
+document.getElementById("formContacto").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const datos = {
+nombre: document.getElementById("nombre").value,
+correo: document.getElementById("correo").value,
+telefono: document.getElementById("telefono").value,
+mensaje: document.getElementById("mensaje").value
+};
+
+fetch("https://script.google.com/macros/s/AKfycbwJ8EUG4tUBMgs1KBUDnCb6oEeOx0qmgtxAbLnLiAxtsg9JtIJ1urdqP1spWtgEWg/exec",{
+method:"POST",
+body: JSON.stringify(datos)
+})
+.then(res => res.text())
+.then(data=>{
+alert("Cita enviada correctamente");
+document.getElementById("formContacto").reset();
+})
+.catch(error=>{
+alert("Error al enviar");
+});
+
+});
+</script>
+
+</section>
+
+<footer>
+<p>© 2026 Consultorio Dental Sonrisa Feliz</p>
+</footer>
+
+</body>
+</html>
